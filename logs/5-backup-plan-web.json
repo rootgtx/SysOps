@@ -1,0 +1,14 @@
+{
+    "templateRules": [
+        {
+            "ruleName": "Daily-Weekly-WEB",
+            "scheduleExpression": "cron(0 2 ? * * *)",
+            "startWindowMinutes": 480,
+            "completionWindowMinutes": 10080,
+            "lifecycle": {
+                "toDeletedAfterDays": 14
+            }
+        }
+    ],
+    "signature": "ID"
+}

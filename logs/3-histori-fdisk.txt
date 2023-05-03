@@ -1,0 +1,19 @@
+    1  clear
+    2  fdisk -l
+    3  mkfs -t ext4 /dev/xvdb
+    4  mkdir /dados
+    5  mount /dev/xvdb /dados
+    6  df -h
+    7  umount /dev/xvdb
+    8  cfdisk
+    9  cfdisk /dev/xvdb
+   10  clear
+   11  2fsck -f /dev/xvdb
+   12  e2fsck -f /dev/xvdb
+   13  resize2fs /dev/xvdb 5GB
+   14  resize2fs /dev/xvdb 5G
+   15  df -h
+   16  fdisk -l
+   17  mount /dev/xvdb /dados
+   18  df -h
+   19  history

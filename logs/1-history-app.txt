@@ -1,0 +1,24 @@
+    1  sudo amazon-linux-extras install nginx1.12
+    2  sudo systemctl start nginx
+    3  sudo systemctl enable nginx
+    4  cd /usr/share/nginx/html/
+    5  ls
+    6  clear
+    7  ls
+    8  git
+    9  yum install git
+   10  git clone https://github.com/GitJMSeguradora/sysops-teste.git
+   11  ls
+   12  cd sysops-teste/
+   13  ls
+   14  cd app/
+   15  ls
+   16  cp -vf index.html /usr/share/nginx/html/
+   17  sudo python3 -m venv /opt/certbot/
+   18  sudo /opt/certbot/bin/pip install --upgrade pip
+   19  sudo /opt/certbot/bin/pip install certbot certbot-nginx
+   20  sudo ln -s /opt/certbot/bin/certbot /usr/bin/certbot
+   21  sudo certbot --nginx
+   22  vi etc/nginx/nginx.conf
+   23  clear
+   24  echo "0 0,12 * * * root python -c 'import random; import time; time.sleep(random.random() * 3600)' && certbot renew -q" | sudo tee -a /etc/crontab > /dev/null

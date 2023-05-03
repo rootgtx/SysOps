@@ -1,0 +1,43 @@
+    1  dnf update -y
+    2  dnf install mysql-server -y
+    3  mysql -V
+    4  systemctl enable mysqld --now
+    5  mysql_secure_installation
+    6  mysql -uroot -p
+    7  rpm -Uvh https://repo.zabbix.com/zabbix/6.0/rhel/8/x86_64/zabbix-release-6.0-4.el8.noarch.rpm
+    8  dnf clean all
+    9  dnf module switch-to php:7.4
+   10  dnf install zabbix-server-mysql zabbix-web-mysql zabbix-apache-conf zabbix-sql-scripts zabbix-selinux-policy zabbix-agent -y
+   11  mysql -uroot -p
+   12  zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
+   13  zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
+   14  zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
+   15  mysql -uroot -p
+   16  mysql -uroot -p
+   17  vi /etc/zabbix/zabbix_server.conf
+   18  vi /etc/zabbix/zabbix_server.conf
+   19  systemctl restart zabbix-server zabbix-agent httpd php-fpm
+   20  systemctl enable zabbix-server zabbix-agent httpd php-fpm
+   21  systemctl status mysqld
+   22  systemctl status zabbix-server
+   23  systemctl status httpd
+   24  firewall-cmd --state
+   25  firewall-cmd --permanent --zone=public --list-ports
+   26  firewall-cmd --permanent --zone=public --list-services
+   27  firewall-cmd --permanent --add-service=http
+   28  firewall-cmd --reload
+   29  firewall-cmd --permanent --zone=public --list-services
+   30  firewall-cmd --reload
+   31  firewall-cmd --list-all
+   32  firewall-cmd --permanent --add-port=10050/tcp
+   33  firewall-cmd --reload
+   34  firewall-cmd --list-ports
+   35  firewall-cmd --permanent --add-port=10051/tcp
+   36  firewall-cmd --reload
+   37  firewall-cmd --list-ports
+   38  clear
+   39  zabbix_get -s 50.19.13.145 -p 10050
+   40  zabbix_get -s 50.19.13.145 -p 10050
+   41  dnf install zabbix-get
+   42  zabbix_get -s 50.19.13.145
+   43  zabbix_get -s 50.19.13.145 -p 10050
